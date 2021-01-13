@@ -1,0 +1,22 @@
+/** @format */
+/** @format */
+.building {
+  width: 40px;
+  height: 40px;
+  display: inline;
+}
+
+.street {
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  display: inline-block;
+}
+
+.street:hover {
+  width: 40px;
+  height: 40px;
+  background-color: grey;
+  display: inline-block;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,23 @@
+/** @format */
+@import "variables";
+
+$h-w: 40px;
+
+.building {
+  width: $h-w;
+  height: $h-w;
+  display: inline;
+}
+.street {
+  width: $h-w;
+  height: $h-w;
+  background-color: $street-color;
+  display: inline-block;
+}
+
+.street:hover {
+  width: $h-w;
+  height: $h-w;
+  background-color: $street-color-hover;
+  display: inline-block;
+}
