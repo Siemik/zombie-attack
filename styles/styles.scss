@@ -17,6 +17,7 @@ $h-w: 40px;
   height: $h-w;
   position: relative;
   display: inline-block;
+  background-color: black;
 }
 .building-img {
   width: $h-w + 15px;
@@ -31,6 +32,7 @@ $h-w: 40px;
   width: $h-w;
   height: $h-w;
   background-color: $street-color;
+  background-image: url("../street-img.jpg");
   display: inline-block;
 }
 
@@ -39,4 +41,5 @@ $h-w: 40px;
   height: $h-w;
   background-color: $street-color-hover;
   display: inline-block;
+  opacity: 0.7;
 }
