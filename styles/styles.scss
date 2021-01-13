@@ -1,13 +1,32 @@
 /** @format */
 @import "variables";
-
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+#game {
+  transform: skew(-20deg, 3deg);
+  margin: auto;
+}
 $h-w: 40px;
 
 .building {
   width: $h-w;
   height: $h-w;
-  display: inline;
+  position: relative;
+  display: inline-block;
 }
+.building-img {
+  width: $h-w + 15px;
+  height: $h-w + 15px;
+  top: -15px;
+  left: -5px;
+  position: absolute;
+  transform: skew(20deg, -3deg);
+}
+
 .street {
   width: $h-w;
   height: $h-w;

@@ -26,10 +26,13 @@ levelOne.forEach((element) => {
     game.appendChild(streetBlock);
   }
   else {
-    const buildingBlock = document.createElement("img")
-    buildingBlock.className = "building"
-    buildingBlock.src = "building.png"
-    game.appendChild(buildingBlock)
+    const buldingBlock = document.createElement("div")
+    buldingBlock.className = "building"
+    const buildingImg = document.createElement("img")
+    buildingImg.className = "building-img"
+    buildingImg.src = "building.png"
+    game.appendChild(buldingBlock)
+    buldingBlock.appendChild(buildingImg)
   }
   lineBreak++
   if ((lineBreak - 9) % 10 == 1)  {
