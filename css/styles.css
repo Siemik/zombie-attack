@@ -11,12 +11,22 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100vh;
+  background-color: grey;
 }
 
-#game {
+#city {
   -webkit-transform: skew(-20deg, 3deg);
           transform: skew(-20deg, 3deg);
-  margin: auto;
+  margin: 0;
+  width: 1159px;
+}
+
+#sea {
+  -webkit-transform: skew(-20deg, 3deg);
+          transform: skew(-20deg, 3deg);
+  background-color: aqua;
+  height: 572px;
+  width: 112px;
 }
 
 .building {
@@ -37,12 +47,19 @@ body {
           transform: skew(20deg, -3deg);
 }
 
-.street {
+.street,
+.street-bombed {
   width: 40px;
   height: 40px;
   background-color: #7a7a7a;
   background-image: url("../street-img.jpg");
   display: inline-block;
+}
+
+.street-bombed {
+  background-image: url("../street-hole-img.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .street:hover {

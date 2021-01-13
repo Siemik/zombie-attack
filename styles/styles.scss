@@ -5,10 +5,18 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  background-color: grey;
 }
-#game {
+#city {
   transform: skew(-20deg, 3deg);
-  margin: auto;
+  margin: 0;
+  width: 1159px;
+}
+#sea {
+  transform: skew(-20deg, 3deg);
+  background-color: aqua;
+  height: 572px;
+  width: 112px;
 }
 $h-w: 40px;
 
@@ -28,12 +36,19 @@ $h-w: 40px;
   transform: skew(20deg, -3deg);
 }
 
-.street {
+.street,
+.street-bombed {
   width: $h-w;
   height: $h-w;
   background-color: $street-color;
   background-image: url("../street-img.jpg");
   display: inline-block;
+}
+
+.street-bombed {
+  background-image: url("../street-hole-img.jpg");
+  background-position: center;
+  background-size: cover;
 }
 
 .street:hover {
