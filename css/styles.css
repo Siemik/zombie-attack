@@ -29,44 +29,54 @@ body {
   width: 112px;
 }
 
-.building {
+.building,
+.building::after,
+.street,
+.street-bombed,
+.street-bombed::after {
   width: 40px;
-  height: 40px;
-  position: relative;
+  height: 30px;
+  margin: 1px;
   display: inline-block;
-  background-color: black;
 }
 
-.building-img {
-  width: 55px;
-  height: 55px;
-  top: -15px;
-  left: -5px;
+.building {
+  background: blue;
+  position: relative;
+}
+
+.building::after {
+  content: "";
+  background: #048cc2;
   position: absolute;
-  -webkit-transform: skew(20deg, -3deg);
-          transform: skew(20deg, -3deg);
+  bottom: 5px;
+  right: 5px;
 }
 
 .street,
 .street-bombed {
-  width: 40px;
-  height: 40px;
-  background-color: #7a7a7a;
-  background-image: url("../street-img.jpg");
-  display: inline-block;
+  background: #00ffc8;
 }
 
 .street-bombed {
-  background-image: url("../street-hole-img.jpg");
-  background-position: center;
-  background-size: cover;
+  background: #7d3ff0;
+  position: relative;
+  -webkit-transition-duration: 0.5s;
+          transition-duration: 0.5s;
+}
+
+.street-bombed::after {
+  content: "";
+  background: #a681eb;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
 
 .street:hover {
-  width: 40px;
-  height: 40px;
   background-color: #363636;
-  display: inline-block;
   opacity: 0.7;
 }
 /*# sourceMappingURL=styles.css.map */

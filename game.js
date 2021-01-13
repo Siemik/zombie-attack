@@ -46,15 +46,37 @@ levelOne.forEach((element) => {
   else {
     const buldingBlock = document.createElement("div")
     buldingBlock.className = "building"
-    const buildingImg = document.createElement("img")
-    buildingImg.className = "building-img"
-    buildingImg.src = "building.png"
     game.appendChild(buldingBlock)
-    buldingBlock.appendChild(buildingImg)
     buldingBlock.infectable = false
   }
-  lineBreak++
-  if ((lineBreak - 9) % 10 == 10)  {
-    game.appendChild(document.createElement("br"))
-  }
+  // lineBreak++
+  // if ((lineBreak - 9) % 10 == 10)  {
+  //   game.appendChild(document.createElement("br"))
+  // }
 });
+
+// zombie
+const zombie = () => {
+  //inicjuje pierwszego zombie
+  document.getElementById("street-block-0").infected = true;
+  //Sprawdza wszytkie bloki na których mogą być zombie
+  let streetBlocks = Array.from(document.querySelectorAll('.street'))
+  // Wypluwa tablice z wszystkimi kafelkami które są zombie
+  const infectedZombies = streetBlocks.filter(isZombie => {
+    return isZombie.infected == true;
+  })
+  console.log(infectedZombies)
+  
+  // Zarażanie sąsiadów 
+  let position = infectedZombies[0].id.slice(13)
+  console.log(position)
+  // górny blok
+  let positionTopNeighbor = position - 15
+  // prawy blok
+  let positionRightNeighbor = position + 1  
+  // dolny blok
+  let positionBottomNeighbor = position + 15 
+  // lewy blok 
+  let positionLeftNeighbor = position - 1
+  //for each które przejdzie przez infectedZombies i zarazi sąsiadów
+}

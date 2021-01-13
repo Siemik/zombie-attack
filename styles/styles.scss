@@ -8,53 +8,59 @@ body {
   background-color: grey;
 }
 #city {
-  transform: skew(-20deg, 3deg);
+  transform: $transform;
   margin: 0;
   width: 1159px;
 }
 #sea {
-  transform: skew(-20deg, 3deg);
+  transform: $transform;
   background-color: aqua;
   height: 572px;
   width: 112px;
 }
-$h-w: 40px;
-
-.building {
+.building,
+.building::after,
+.street,
+.street-bombed,
+.street-bombed::after {
   width: $h-w;
-  height: $h-w;
-  position: relative;
+  height: $h-w - 10px;
+  margin: $block-margin;
   display: inline-block;
-  background-color: black;
 }
-.building-img {
-  width: $h-w + 15px;
-  height: $h-w + 15px;
-  top: -15px;
-  left: -5px;
+.building {
+  background: blue;
+  position: relative;
+}
+.building::after {
+  content: "";
+  background: rgb(4, 140, 194);
   position: absolute;
-  transform: skew(20deg, -3deg);
+  bottom: $after-absolut;
+  right: $after-absolut;
 }
 
 .street,
 .street-bombed {
-  width: $h-w;
-  height: $h-w;
-  background-color: $street-color;
-  background-image: url("../street-img.jpg");
-  display: inline-block;
+  background: rgb(0, 255, 200);
 }
 
 .street-bombed {
-  background-image: url("../street-hole-img.jpg");
-  background-position: center;
-  background-size: cover;
+  background: rgb(125, 63, 240);
+  position: relative;
+  transition-duration: 0.5s;
+}
+
+.street-bombed::after {
+  content: "";
+  background: rgb(166, 129, 235);
+  position: absolute;
+  bottom: $after-absolut;
+  right: $after-absolut;
+  transition-duration: 0.3s;
 }
 
 .street:hover {
-  width: $h-w;
-  height: $h-w;
   background-color: $street-color-hover;
-  display: inline-block;
   opacity: 0.7;
 }
