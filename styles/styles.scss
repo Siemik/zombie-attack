@@ -5,7 +5,10 @@ body {
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: grey;
+  flex-direction: column;
+}
+.container {
+  margin-bottom: 50px;
 }
 #city {
   transform: $transform;
@@ -22,19 +25,20 @@ body {
 .building::after,
 .street,
 .street-bombed,
-.street-bombed::after {
+.street-bombed::after,
+.zombie {
   width: $h-w;
   height: $h-w - 10px;
   margin: $block-margin;
   display: inline-block;
 }
 .building {
-  background: blue;
   position: relative;
+  background: blue;
 }
 .building::after {
   content: "";
-  background: rgb(4, 140, 194);
+  background: rgb(5, 129, 179);
   position: absolute;
   bottom: $after-absolut;
   right: $after-absolut;
@@ -63,4 +67,8 @@ body {
 .street:hover {
   background-color: $street-color-hover;
   opacity: 0.7;
+}
+
+.zombie {
+  background-color: red;
 }

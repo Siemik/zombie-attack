@@ -11,7 +11,14 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100vh;
-  background-color: grey;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container {
+  margin-bottom: 50px;
 }
 
 #city {
@@ -33,24 +40,25 @@ body {
 .building::after,
 .street,
 .street-bombed,
-.street-bombed::after {
+.street-bombed::after,
+.zombie {
   width: 40px;
   height: 30px;
-  margin: 1px;
+  margin: 5px;
   display: inline-block;
 }
 
 .building {
-  background: blue;
   position: relative;
+  background: blue;
 }
 
 .building::after {
   content: "";
-  background: #048cc2;
+  background: #0581b3;
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 2px;
+  right: 2px;
 }
 
 .street,
@@ -69,8 +77,8 @@ body {
   content: "";
   background: #a681eb;
   position: absolute;
-  bottom: 5px;
-  right: 5px;
+  bottom: 2px;
+  right: 2px;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -78,5 +86,9 @@ body {
 .street:hover {
   background-color: #363636;
   opacity: 0.7;
+}
+
+.zombie {
+  background-color: red;
 }
 /*# sourceMappingURL=styles.css.map */
