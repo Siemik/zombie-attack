@@ -27,6 +27,11 @@ game.addEventListener('contextmenu', e => {
   e.preventDefault();
 });
 
+acceptButton=document.getElementById("accept")
+const popUp = document.getElementById("pop-up")
+const hidePopUp= () => popUp.className= "hide-pop-up"
+acceptButton.addEventListener("click", hidePopUp)
+
 // Sprawdza co na mapie jest budynkiem, co ulicą i robi na tej podstawie odpowiedniego diva
 levelOne.forEach((element) => {
   // Tworzy ulice 

@@ -10,13 +10,15 @@
 
 <body>
   <div class="container">
-    <button id="start-attack" class="hide-button">Rozpocznij symulacje</button>
-    <div class="container-text">
-      <p class="barricade-text">Rozłóż barykady- <span class="normal-text">lewy przycisk myszki</span></p>
-      <p class="zombie-text">Ustal miejsce pojawienia się zombie- <span class="normal-text">prawy przycisk myszki</span></p>
+    <div id="city">
+      <button id="start-attack" class="hide-button">Rozpocznij symulacje ataku zombie</button>
     </div>
   </div>
-  <div id="city"></div>
+  <div class="pop-up" id="pop-up">
+      <p class="barricade-text">Rozłóż barykady- <span class="normal-text">lewy przycisk myszki</span></p>
+      <p class="zombie-text">Ustal miejsce pojawienia się zombie- <span class="normal-text">prawy przycisk myszki</span></p>
+      <button id="accept">Rozumiem ✔️</button>
+  </div>
   <script src="game.js"></script>
 </body>
 
