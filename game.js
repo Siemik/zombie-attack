@@ -18,16 +18,17 @@ const levelOne = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
                   
 ]
 const game = document.getElementById("city")
-// let lineBreak = 0;
-let bombs = 0;
 let streetId = 0;
 let gameLoopCounter = 0
 let time = 500
 
-// Create city
-// For each na który sprawdza co na mapie jest budynkiem, co ulicą i robi na tej podstawie odpoiwedniego diva
+game.addEventListener('contextmenu', e => {
+  e.preventDefault();
+});
+
+// Sprawdza co na mapie jest budynkiem, co ulicą i robi na tej podstawie odpowiedniego diva
 levelOne.forEach((element) => {
-  // streets 
+  // Tworzy ulice 
   if(!element) {
     const streetBlock = document.createElement("div")
     streetBlock.className = "street"
@@ -36,16 +37,19 @@ levelOne.forEach((element) => {
     streetBlock.infected = false;
     streetBlock.id= "street-block-" + streetId;
     streetId++;
-    // bombs 
+    // Dodaje możliwość stworzenia barykady
     streetBlock.addEventListener("click", () => {
-      if (bombs<5) {
-        streetBlock.infecteable = false
-        streetBlock.className = "street-bombed"
-        bombs++;
-      }
+      streetBlock.infecteable = false
+      streetBlock.className = "street-bombed"
+    })
+   // Dodaje możliwość stworzenia dodania źródła zombie
+    streetBlock.addEventListener("contextmenu", () => {
+      streetBlock.infecteable = true;
+      streetBlock.className = "zombie"
+      streetBlock.infected= true;
     })
   }
-  // buildings 
+  // Tworzy budynek 
   else {
     const buldingBlock = document.createElement("div")
     buldingBlock.className = "building"
@@ -54,19 +58,18 @@ levelOne.forEach((element) => {
     buldingBlock.infectable = false
     streetId++;
   }
+  //Jest sens używać br'ów?
+  //Tak- jeśli poziomy mają mieć różne kształty mapy
+
   // lineBreak++
   // if ((lineBreak - 9) % 10 == 10)  {
   //   game.appendChild(document.createElement("br"))
   // }
 });
 
-// zombie
+// Funkcja zarażania ulic
 const zombie = () => {
-  //inicjuje pierwszego zombie
-  document.getElementById("street-block-102").infected = true;
-  document.getElementById("street-block-102").newInfected = 0;
-  document.getElementById("street-block-102").className = "zombie";
-  //Sprawdza wszytkie bloki na których mogą być zombie
+  //Sprawdza wszytkie bloki na których są zombie
   let streetBlocks = Array.from(document.querySelectorAll('.zombie'))
   // Wypluwa tablice z wszystkimi kafelkami które są zombie
   const infectedZombies = streetBlocks.filter(isZombie => {
@@ -76,6 +79,7 @@ const zombie = () => {
   infectedZombies.forEach((zombie) =>{
     let endLoop = 0
     let position = zombie.id.slice(13)
+    
     // Zarażanie sąsiadów 
     // górny blok
     let positionTopNeighbor = Number(position) - 23;
@@ -125,7 +129,7 @@ const zombie = () => {
       endLoop++
     }
 
-    //jeśli żaden zombiak nie ma sąsiadów to zakarzenia to kończy loop 
+    //jeśli żaden zombiak nie ma sąsiadów do zakarzenia to kończy loop 
     if (endLoop < 4) {
       console.log("funkcja gameLoop została odpalona")
       gameLoop()

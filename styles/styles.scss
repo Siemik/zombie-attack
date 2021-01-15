@@ -8,8 +8,37 @@ body {
   flex-direction: column;
 }
 .container {
+  display: flex;
   margin-bottom: 50px;
+  align-items: center;
+  flex-direction: column;
 }
+.container-text {
+  display: flex;
+  flex-direction: row;
+}
+.normal-text {
+  font-weight: 400;
+  color: black;
+}
+#start-attack {
+  margin-top: 10px;
+  width: 200px;
+}
+.barricade-text,
+.zombie-text {
+  margin: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 15px;
+}
+.barricade-text {
+  color: rgb(125, 63, 240);
+}
+.zombie-text {
+  color: red;
+}
+
 #city {
   transform: $transform;
   margin: 0;
