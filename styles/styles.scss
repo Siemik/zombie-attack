@@ -7,6 +7,9 @@ body {
   height: 100vh;
   flex-direction: column;
 }
+.hide-button {
+  display: none;
+}
 .container {
   display: flex;
   margin-bottom: 50px;
@@ -22,11 +25,10 @@ body {
   color: black;
 }
 #start-attack {
-  margin-top: 10px;
   width: 200px;
-}
-.hide-button {
-  display: none;
+  height: 30px;
+  // background-color: rgb(211, 4, 4);
+  // color: white;
 }
 .barricade-text,
 .zombie-text {

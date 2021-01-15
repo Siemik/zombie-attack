@@ -17,6 +17,10 @@ body {
           flex-direction: column;
 }
 
+.hide-button {
+  display: none;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,8 +51,8 @@ body {
 }
 
 #start-attack {
-  margin-top: 10px;
   width: 200px;
+  height: 30px;
 }
 
 .barricade-text,

@@ -50,6 +50,7 @@ levelOne.forEach((element) => {
       streetBlock.infecteable = true;
       streetBlock.className = "zombie"
       streetBlock.infected= true;
+      document.querySelector(".hide-button").className=""
     })
   }
   // Tworzy budynek 
