@@ -17,6 +17,7 @@ const levelOne = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
                   1,1,1,1,1,1,1,1,1,1,1,1,1,1
                   
 ]
+levelOne.lineBreake=23;
 const game = document.getElementById("city")
 let streetId = 0;
 let gameLoopCounter = 0
@@ -82,7 +83,7 @@ const zombie = () => {
     
     // Zarażanie sąsiadów 
     // górny blok
-    let positionTopNeighbor = Number(position) - 23;
+    let positionTopNeighbor = Number(position) - levelOne.lineBreake;
     let topNeighbor = document.getElementById("street-block-"+positionTopNeighbor)
     if (topNeighbor.className == "street") {
       topNeighbor.className = "zombie"
@@ -106,7 +107,7 @@ const zombie = () => {
     }
 
     // dolny blok
-    let positionBottomNeighbor = Number(position) + 23;
+    let positionBottomNeighbor = Number(position) + levelOne.lineBreake;
     let bottomNeighbor = document.getElementById("street-block-"+positionBottomNeighbor)
     if (bottomNeighbor.className == "street") {
       bottomNeighbor.className = "zombie"
