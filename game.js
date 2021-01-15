@@ -40,8 +40,10 @@ levelOne.forEach((element) => {
     streetId++;
     // Dodaje możliwość stworzenia barykady
     streetBlock.addEventListener("click", () => {
-      streetBlock.infecteable = false
-      streetBlock.className = "street-bombed"
+      if (streetBlock.className=="street"){
+        streetBlock.infecteable = false
+        streetBlock.className = "street-bombed"
+      }
     })
    // Dodaje możliwość stworzenia dodania źródła zombie
     streetBlock.addEventListener("contextmenu", () => {
@@ -132,10 +134,6 @@ const zombie = () => {
     }
   })
 }
-// const gameLoop = () => setTimeout( () => {
-//  zombie()
-// }, time)
-
 function gameLoop() {
   setInterval(() => {
     zombie()
