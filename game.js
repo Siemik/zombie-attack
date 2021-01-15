@@ -125,18 +125,22 @@ const zombie = () => {
     else {
       endLoop++
     }
-
     //jeśli żaden zombiak nie ma sąsiadów do zakarzenia to kończy loop 
     if (endLoop < 4) {
-      console.log("funkcja gameLoop została odpalona")
-      gameLoop()
-      time = time + 200
+      clearTimeout(gameLoop)
+      console.log("wywołuje gameLoop")
     }
   })
 }
-const gameLoop = () => setTimeout( () => {
- zombie()
-}, time)
+// const gameLoop = () => setTimeout( () => {
+//  zombie()
+// }, time)
+
+function gameLoop() {
+  setInterval(() => {
+    zombie()
+  }, 350);
+} 
 
 //Start button
 document.getElementById("start-attack").addEventListener('click', gameLoop)
