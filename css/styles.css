@@ -121,8 +121,8 @@ body {
 .building,
 .building::after,
 .street,
-.street-bombed,
-.street-bombed::after,
+.street-barricaded,
+.street-barricaded::after,
 .zombie {
   width: 40px;
   height: 30px;
@@ -144,18 +144,18 @@ body {
 }
 
 .street,
-.street-bombed {
+.street-barricaded {
   background: #00ffc8;
 }
 
-.street-bombed {
+.street-barricaded {
   background: #7d3ff0;
   position: relative;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
 
-.street-bombed::after {
+.street-barricaded::after {
   content: "";
   background: #a681eb;
   position: absolute;

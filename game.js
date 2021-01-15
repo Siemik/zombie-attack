@@ -47,7 +47,7 @@ levelOne.forEach((element) => {
     streetBlock.addEventListener("click", () => {
       if (streetBlock.className=="street"){
         streetBlock.infecteable = false
-        streetBlock.className = "street-bombed"
+        streetBlock.className = "street-barricaded"
       }
     })
    // Dodaje możliwość stworzenia dodania źródła zombie
