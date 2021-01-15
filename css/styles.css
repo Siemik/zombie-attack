@@ -173,4 +173,16 @@ body {
 .zombie {
   background-color: red;
 }
+
+@media (min-width: 1260px) {
+  .no-mobile {
+    display: none;
+  }
+}
+
+@media (max-width: 1260px) {
+  .desktop {
+    display: none;
+  }
+}
 /*# sourceMappingURL=styles.css.map */

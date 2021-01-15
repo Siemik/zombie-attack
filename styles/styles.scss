@@ -130,3 +130,15 @@ body {
 .zombie {
   background-color: red;
 }
+
+.no-mobile {
+  @media (min-width: 1260px) {
+    display: none;
+  }
+}
+
+.desktop {
+  @media (max-width: 1260px) {
+    display: none;
+  }
+}
