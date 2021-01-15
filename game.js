@@ -18,9 +18,11 @@ const levelOne = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
                   
 ]
 const game = document.getElementById("city")
-let lineBreak = 0;
+// let lineBreak = 0;
 let bombs = 0;
 let streetId = 0;
+let gameLoopCounter = 0
+let time = 500
 
 // Create city
 // For each na który sprawdza co na mapie jest budynkiem, co ulicą i robi na tej podstawie odpoiwedniego diva
@@ -70,13 +72,10 @@ const zombie = () => {
   const infectedZombies = streetBlocks.filter(isZombie => {
     return isZombie.infected == true;
   })
-  console.log("zainfekowane zombie: ")
-  console.log(infectedZombies)
-  
 
   infectedZombies.forEach((zombie) =>{
+    let endLoop = 0
     let position = zombie.id.slice(13)
-    console.log(position)
     // Zarażanie sąsiadów 
     // górny blok
     let positionTopNeighbor = Number(position) - 23;
@@ -86,6 +85,10 @@ const zombie = () => {
       topNeighbor.newInfected = 0;
       topNeighbor.infected = true;
     }
+    else {
+      endLoop++
+    }
+
     // prawy blok
     let positionRightNeighbor = Number(position)+ 1
     let rightNeighbor = document.getElementById("street-block-"+positionRightNeighbor)
@@ -94,6 +97,10 @@ const zombie = () => {
       rightNeighbor.newInfected = 0;
       rightNeighbor.infected = true;
     }
+    else {
+      endLoop++
+    }
+
     // dolny blok
     let positionBottomNeighbor = Number(position) + 23;
     let bottomNeighbor = document.getElementById("street-block-"+positionBottomNeighbor)
@@ -102,6 +109,10 @@ const zombie = () => {
       bottomNeighbor.newInfected = 0;
       bottomNeighbor.infected = true;
     }
+    else {
+      endLoop++
+    }
+
     // lewy blok 
     let positionLeftNeighbor = Number(position) - 1
     let leftNeighbor = document.getElementById("street-block-"+positionLeftNeighbor)
@@ -110,20 +121,21 @@ const zombie = () => {
       leftNeighbor.newInfected = 0;
       leftNeighbor.infected = true;
     }
-    if (gameLoopCounter<10) {
+    else {
+      endLoop++
+    }
+
+    //jeśli żaden zombiak nie ma sąsiadów to zakarzenia to kończy loop 
+    if (endLoop < 4) {
+      console.log("funkcja gameLoop została odpalona")
       gameLoop()
-      time = time + 300
+      time = time + 200
     }
   })
-  //for each które przejdzie przez infectedZombies i zarazi sąsiadów
 }
-
-let gameLoopCounter = 0
-time = 500
-
-const gameLoop = () => window.setTimeout(gameLoop => {
-  zombie()
-  gameLoopCounter++
+const gameLoop = () => setTimeout( () => {
+ zombie()
 }, time)
 
-document.getElementById("start-attack").addEventListener('click', zombie)
+//Start button
+document.getElementById("start-attack").addEventListener('click', gameLoop)
