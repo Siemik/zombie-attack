@@ -87,7 +87,6 @@ const zombie = () => {
     let topNeighbor = document.getElementById("street-block-"+positionTopNeighbor)
     if (topNeighbor.className == "street") {
       topNeighbor.className = "zombie"
-      topNeighbor.newInfected = 0;
       topNeighbor.infected = true;
     }
     else {
@@ -99,7 +98,6 @@ const zombie = () => {
     let rightNeighbor = document.getElementById("street-block-"+positionRightNeighbor)
     if (rightNeighbor.className == "street") {
       rightNeighbor.className = "zombie"
-      rightNeighbor.newInfected = 0;
       rightNeighbor.infected = true;
     }
     else {
@@ -111,7 +109,6 @@ const zombie = () => {
     let bottomNeighbor = document.getElementById("street-block-"+positionBottomNeighbor)
     if (bottomNeighbor.className == "street") {
       bottomNeighbor.className = "zombie"
-      bottomNeighbor.newInfected = 0;
       bottomNeighbor.infected = true;
     }
     else {
@@ -123,7 +120,6 @@ const zombie = () => {
     let leftNeighbor = document.getElementById("street-block-"+positionLeftNeighbor)
     if (leftNeighbor.className == "street") {
       leftNeighbor.className = "zombie"
-      leftNeighbor.newInfected = 0;
       leftNeighbor.infected = true;
     }
     else {
